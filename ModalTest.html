@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Slave And LOTM</title>
+    <link rel="stylesheet" type="text/css" href="Style/MyStyle.css">
+    <style>
+        /* Container with shadow and centered content */
+        .container {
+            border: 1px solid black;
+            max-width: 2000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: rgb(0, 165, 55);
+        }
+
+        /* Styling for images */
+        img {
+            height: 500px;
+            max-width: 500px;
+            border: 5px solid black;
+            border-radius: 8px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        /* Styling for links */
+        a {
+            text-decoration: none;
+            font-size: 25px;
+            padding-right: 50px;
+        }
+
+        /* Styling for footer */
+        footer {
+            border: 1px solid black;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 0 auto;
+            max-width: 2000px;
+            font-size: 20px;
+            width: auto;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgb(0, 165, 55);
+            padding: 35px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        /* Flexbox for responsive image display */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Close button for the modal */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div class="container">
+        <h1>Saint Joseph College</h1>
+    </div>
+
+    <br>
+
+    <!-- Navigation Links -->
+    <div class="container">
+        <a href="index.html">HOME</a>
+        <a href="biodata.html">BIODATA</a>
+        <a href="Images.html">BOOKS</a>
+    </div>
+
+    <br>
+
+    <!-- Image Section for Shadow Slave and LOTM -->
+    <div class="image-container">
+        <img src="Shadow.jpg" alt="Shadow 1" class="modal-trigger">
+        <img src="Shadow2.jpg" alt="Shadow 2" class="modal-trigger">
+        <img src="Shadow3.jpg" alt="Shadow 3" class="modal-trigger">
+    </div>
+
+    <div class="image-container">
+        <img src="Mysteries.jpg" alt="Mysteries 1" class="modal-trigger">
+        <img src="Mysteries2.jpg" alt="Mysteries 2" class="modal-trigger">
+        <img src="Mysteries3.jpg" alt="Mysteries 3" class="modal-trigger">
+    </div>
+
+    <!-- Modal for displaying images -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <img id="modalImage" src="" alt="Modal Image">
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        Please Contact: sjcinfoedu@yahoo.com
+    </footer>
+
+    <script>
+        // Get modal and elements
+        var modal = document.getElementById("imageModal");
+        var modalImage = document.getElementById("modalImage");
+        var closeModal = document.getElementById("closeModal");
+        var images = document.querySelectorAll('.modal-trigger');
+
+        // Open the modal when an image is clicked
+        images.forEach(function(image) {
+            image.onclick = function() {
+                modal.style.display = "flex";
+                modalImage.src = image.src; // Set the modal image source to the clicked image
+            };
+        });
+
+        // Close the modal when the close button is clicked
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        };
+
+        // Close the modal if the user clicks anywhere outside the image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+
+</body>
+</html>
